@@ -1,6 +1,6 @@
 // <⚠️ DONT DELETE THIS ⚠️>
 
-const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
+const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c","#353b48","#192a56"];
 // <⚠️ /DONT DELETE THIS ⚠️>
 
 /*
@@ -33,7 +33,28 @@ const superEventHandler = {
 };
 const title = document.querySelector("h2");
 
-window.addEventListener("contextmenu", superEventHandler.contextmenu);
-title.addEventListener("mouseover", superEventHandler.mouseOver);
-title.addEventListener("mouseout", superEventHandler.mouseOut);
-window.addEventListener("resize", superEventHandler.handleResize);
+
+
+function changeResize(event){
+    let width = window.innerWidth;
+    if(width > 1200){
+        document.body.style.backgroundColor = colors[4];
+    }else if ( width < 1200 && width > 700){
+        document.body.style.backgroundColor = colors[5];
+    }else{
+        document.body.style.backgroundColor = colors[6];
+    }
+    
+}
+function init(){
+  changeResize();
+  window.addEventListener("resize",changeResize);
+  window.addEventListener("contextmenu", superEventHandler.contextmenu);
+  title.addEventListener("mouseover", superEventHandler.mouseOver);
+  title.addEventListener("mouseout", superEventHandler.mouseOut);
+  window.addEventListener("resize", superEventHandler.handleResize);
+
+
+}
+
+init();
